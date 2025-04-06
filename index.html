@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Soberbos - Marcação de xGrupo, x4 ou x6 (Free Fire)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #f4c542;
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #222;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      background: #f4c542;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .info {
+      text-align: center;
+      margin-top: 20px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Soberbos - Marcar Partida</h1>
+  <form id="marcacaoForm">
+    <label for="tipo">Tipo de Partida:</label>
+    <select id="tipo" required>
+      <option value="xgrupo">xGrupo</option>
+      <option value="x4">x4</option>
+      <option value="x6">x6</option>
+    </select>
+
+    <label for="data">Data:</label>
+    <input type="date" id="data" required>
+
+    <label for="hora">Horário:</label>
+    <input type="time" id="hora" required>
+
+    <label for="grupo">Nome do Grupo:</label>
+    <input type="text" id="grupo" placeholder="Ex: Soberbos Elite" required>
+
+    <label for="organizador">Organizador:</label>
+    <input type="text" id="organizador" placeholder="Seu nome" required>
+
+    <button type="submit">Marcar</button>
+  </form>
+
+  <div class="info">
+    <p>Funcionamento: Segunda a Sábado</p>
+  </div>
+
+  <script>
+    document.getElementById('marcacaoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const tipo = document.getElementById('tipo').value;
+      const data = document.getElementById('data').value;
+      const hora = document.getElementById('hora').value;
+      const grupo = document.getElementById('grupo').value;
+      const organizador = document.getElementById('organizador').value;
+
+      const msg = encodeURIComponent(
+        `📅 Nova partida marcada!
+
+🕹 Tipo: ${tipo}
+📆 Data: ${data}
+⏰ Hora: ${hora}
+👥 Grupo: ${grupo}
+👤 Organizador: ${organizador}`
+      );
+
+      const numeros = ["11980573707", "11977341518", "11954436118"];
+      numeros.forEach(numero => {
+        window.open(`https://wa.me/55${numero}?text=${msg}`, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>
